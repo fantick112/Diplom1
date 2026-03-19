@@ -1,0 +1,119 @@
+
+
+.conteinerWallet{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    background-color: #F9F9F9;
+    z-index:  100;
+}
+.logoW{
+    width: 50%;
+}
+
+.left-contein{
+   width: 50%;
+   height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-contein h2{
+    font-size: clamp(1.6rem, 4vw, 3.4rem);
+}
+.walletItem{
+    width: clamp(260px, 40vw, 300px);
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    background-color: #0000001A;
+    margin-bottom: 10px;
+    align-items: center;
+    border-radius: 20px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.walletItem:hover{
+    background-color: #ffffffe8;
+    border:1px solid #141416;
+     transform: translateY(-3px);
+}
+
+.left-contein a{
+    display: flex;
+    align-items: center;
+    gap: clamp(15px, 4vw , 35px);
+    color: #141416;
+    text-decoration: none;
+}
+.left-contein span{
+font-size: clamp(10px, 5vw, 20px);
+}
+
+.walletItem img{
+    width: 30px;
+    height: 30px;
+}
+
+.btn-next{
+   background-color: #141416;
+    color: white;
+    width: clamp(213px, 29vw, 380px);
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-next:hover{
+    background-color: #fff;
+    color: #141416;
+}
+
+.right-contein{
+    background-color: #141416;
+    text-align: center;
+        padding:clapm(20px, 12vw, 85px);
+            width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text{
+    width: clamp(271px, 40vw, 371px);
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text h1{
+    color: #fff;
+    font-size:2.5rem;
+}
+
+.text p{
+    color: #6D6D6D;
+    font-size: 11px;
+}
+
+
+.walletImg{
+    width: clamp(200px, 40vw, 278px);
+     filter: drop-shadow(0 0 60px rgba(255,255,255,0.6));
+       transform: translateY(-2px);
+}
+
+@media(max-width: 480px){
+    .conteinerWallet{
+        display: flex;
+        justify-content: center;
+    }
+    .right-contein{
+        display: none;
+    }
+}
