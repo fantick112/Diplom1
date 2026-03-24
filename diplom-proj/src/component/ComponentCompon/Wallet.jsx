@@ -1,6 +1,6 @@
 import React from "react";
 import "./Wallet.css";
-import imgWallet from "../img//imgHome1/rectangle3.png";
+import imgWallet from "../img/imgHome1/Rectangle3.png";
 import logo from "../img/logo/imglogo.svg";
 import lisa from "../img/wallet/lisa.png";
 import image2 from "../img/wallet/image2.png";
