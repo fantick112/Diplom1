@@ -8,7 +8,7 @@ import MaimCollector from "./MaimCollector";
 import SellNFT from "./SellNFT";
 import { useNavigate } from "react-router-dom";
 
-import rectangle1 from "./img/imgHome1/rectangle3.png";
+import rectangle1 from "./img/imgHome1/Rectangle3.png";
 import rectangle2 from "./img/imgHome1/Rectangle3_1.png";
 import group from "./img/imgHome1/gr.png";
 import arrow from "./img/imgHome1/Arrow01.png";
