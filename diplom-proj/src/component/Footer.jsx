@@ -1,5 +1,5 @@
 import q from "./img/footer/f.png";
-import logoF from "./img/logo.png";
+import logoF from "./img/Logo.png";
 import insta from "./img/message/insta.png";
 import twitter from "./img/message/twitter.png";
 import facebook from "./img/message/facebook.png";
