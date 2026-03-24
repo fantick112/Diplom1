@@ -1,17 +1,22 @@
-import React from "react";
-import oki from "./img/footer/ok.png";
-import r from "./img/imgHome1/r.png";
-import Rotation1 from "./img/footer/righ/im2.png";
-import Best from "./img/footer/righ/im1.png";
-import Viewed2 from "./img/footer/righ/im3.png";
 import q from "./img/footer/f.png";
 import logoF from "./img/logo.png";
 import insta from "./img/message/insta.png";
 import twitter from "./img/message/twitter.png";
 import facebook from "./img/message/facebook.png";
 import ini from "./img/message/in.png";
+import { useNavigate } from "react-router-dom";
 
 function Footer() {
+  const navigate = useNavigate();
+
+  const toExplore = () => {
+    navigate("/discover");
+    window.scrollTo(0, 0);
+  };
+  const toSellNFT = () => {
+    navigate("/SellNFT");
+  };
+
   return (
     <div className="conteinerFooter">
       <div className="footerCreate">
@@ -20,8 +25,12 @@ function Footer() {
           <p style={{ color: "#D4D4D4" }}>World’s Largest NFT Place</p>
 
           <div className="foonerCreateBtn">
-            <button className="foonerCreateBtnBtn">Explore More</button>
-            <button className="foonerCreateBtnBtn">Sell Artwork</button>
+            <button className="foonerCreateBtnBtn" onClick={toExplore}>
+              Explore More
+            </button>
+            <button className="foonerCreateBtnBtn" onClick={toSellNFT}>
+              Sell Artwork
+            </button>
           </div>
         </div>
 
@@ -68,38 +77,38 @@ function Footer() {
 
       <div className="footerMediaMob">
         <div className="footerCOnt">
-        <div className="footerModMessag">
-          <a href="#">
-            <img src={logoF} alt="logo" className="logoFooterMob" />
-          </a>
-          <div className="messageImg">
+          <div className="footerModMessag">
             <a href="#">
-              <img src={insta} alt="instagram" />
+              <img src={logoF} alt="logo" className="logoFooterMob" />
             </a>
-            <a href="#">
-              <img src={ini} alt="linkedin" />
-            </a>
-            <a href="#">
-              <img src={facebook} alt="facebook" />
-            </a>
-            <a href="#">
-              <img src={twitter} alt="twitter" />
-            </a>
+            <div className="messageImg">
+              <a href="#">
+                <img src={insta} alt="instagram" />
+              </a>
+              <a href="#">
+                <img src={ini} alt="linkedin" />
+              </a>
+              <a href="#">
+                <img src={facebook} alt="facebook" />
+              </a>
+              <a href="#">
+                <img src={twitter} alt="twitter" />
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div className="footerMobilMenu">
-          <div className="footerLinck">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Term & Conditions</a>
-            <a href="#">About Us</a>
-            <a href="#">Contact</a>
+          <div className="footerMobilMenu">
+            <div className="footerLinck">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Term & Conditions</a>
+              <a href="#">About Us</a>
+              <a href="#">Contact</a>
+            </div>
           </div>
-        </div>
-        <hr />
-        <div style={{textAlign: 'center'}}>
-          <p>© 2023 EATLY All Rights Reserved.</p>
-        </div>
+          <hr />
+          <div style={{ textAlign: "center" }}>
+            <p>© 2023 EATLY All Rights Reserved.</p>
+          </div>
         </div>
       </div>
     </div>

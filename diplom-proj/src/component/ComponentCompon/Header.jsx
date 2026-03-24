@@ -1,27 +1,22 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../img/logo/imglogo.svg";
 import "./HeaderCss.css";
 
 function Header({ openBasket, baskets }) {
-
   const [isOpen, setIsOpen] = useState(false);
-  
 
-  function changeOpen(){
+  function changeOpen() {
     setIsOpen(!isOpen);
   }
 
-  function closeMenu(){
-      setIsOpen(false)
+  function closeMenu() {
+    setIsOpen(false);
   }
 
   return (
     <div className="headerConteiner">
-
       <div className="nav">
-
         <div className="headerLinck">
           <Link to="/">
             <img src={logo} alt="logo" />
@@ -37,32 +32,36 @@ function Header({ openBasket, baskets }) {
             🛒 Basket ({baskets.length})
           </button>
         </div>
-
       </div>
 
       <div className="container_header">
-
         <div className="logo">
-         {/* <img src={logo} alt=""> <span>DiveSea</span>/ */}
           <Link to="/">
             <img src={logo} alt="logo" />
-            
           </Link>
-          
         </div>
 
-        <nav onClick={closeMenu} className={"nav-mobile " + (isOpen ? "open" : "close")}>
-             <Link to="/" className="navMenuA" >Home
-           {/*<img src={logo} alt="logo" /> */} 
+        <nav
+          onClick={closeMenu}
+          className={"nav-mobile " + (isOpen ? "open" : "close")}
+        >
+          <Link to="/" className="navMenuA">
+            Home
+            {/*<img src={logo} alt="logo" /> */}
           </Link>
-           <a className="navMenuA" onClick={openBasket}>
+          <a className="navMenuA" onClick={openBasket}>
             🛒 Basket ({baskets.length})
           </a>
-         
-          <Link to="/discover" className="navMenuA" >Discover</Link>
-          <Link to="/creators" className="navMenuA" >Creators</Link>
-          <Link to="/sellNFT" className="navMenuA" >SellNFT</Link>
-          
+
+          <Link to="/discover" className="navMenuA">
+            Discover
+          </Link>
+          <Link to="/sellNFT" className="navMenuA">
+            SellNFT
+          </Link>
+          <Link to="/wallet" className="navMenuA">
+            Wallet
+          </Link>
         </nav>
 
         <div className="menu_icon">
@@ -73,9 +72,7 @@ function Header({ openBasket, baskets }) {
             ☰
           </button>
         </div>
-
       </div>
-
     </div>
   );
 }

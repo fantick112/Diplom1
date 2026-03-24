@@ -23,24 +23,24 @@ export const Basket = ({ baskets = [], removeFromBasket, closeBasket }) => {
           <p>Basket is empty</p>
         ) : (
           <div className="basket-g-c">
-            {baskets.filter(Boolean).map((item, i) => (
-              <div className="basket-item" key={item.id + i}>
-                <img src={item.image} alt={item.name} />
+           {baskets.map((item) => (
+  <div className="basket-item" key={item.basketId}>
+    <img src={item.image} alt={item.name} />
 
-                <div className="basket-info">
-                  <h5>{item.name}</h5>
-                </div>
+    <div className="basket-info">
+      <h5>{item.name}</h5>
+    </div>
 
-                <div className="bid">{item.bid}</div>
+    <div className="bid">{item.bid}</div>
 
-                <button
-                  className="delete-btn"
-                  onClick={() => removeFromBasket(item.id)}
-                >
-                  ✕
-                </button>
-              </div>
-            ))}
+    <button
+      className="delete-btn"
+      onClick={() => removeFromBasket(item.basketId)}
+    >
+      ✕
+    </button>
+  </div>
+))}
           </div>
         )}
 
@@ -51,57 +51,3 @@ export const Basket = ({ baskets = [], removeFromBasket, closeBasket }) => {
     </div>
   );
 };
-
-/*import "./Basket.css"
-import "./HeaderCss.css";
-
-export const Basket = ({ baskets, removeFromBasket }) => {
-
-  function getDate(){
-    const now = new Date();
-    return now.toLocaleDateString();
-  }
-
-  return (
-    <div className="basket-g">
-      <div className="basket-c">
-
-        <h4>History of Bid</h4>
-        <p>{getDate()}</p>
-
-        {baskets.length === 0 ? (
-          <p>Basket is empty</p>
-        ) : (
-          baskets.map(item => (
-            <div className="basket-item" key={item.id}>
-
-              <img src={item.image} alt={item.name} />
-
-              <div className="basket-info">
-                <h5>{item.name}</h5>
-                <span>Current bid</span>
-              </div>
-
-              <div className="bid">
-                {item.bid}
-              </div>
-
-              <button
-                className="delete-btn"
-                onClick={() => removeFromBasket(item.id)}
-              >
-                ✕
-              </button>
-
-            </div>
-          ))
-        )}
-
-        <button className="submit-btn">
-          Submit
-        </button>
-
-      </div>
-    </div>
-  );
-};*/

@@ -6,10 +6,11 @@ import SellNFT from "./component/SellNFT";
 import { cart } from "./component/propsObj";
 import { Basket } from "./component/ComponentCompon/Basket";
 import Wallet from "./component/ComponentCompon/Wallet";
+import ScrollToTop from "./component/ScrollToTop";
 
 import "./App.css";
 import Footer from "./component/Footer";
-import { useState } from "react";
+import { use, useState } from "react";
 
 function App() {
   const [nfts, setNfts] = useState(cart);
@@ -27,11 +28,16 @@ function App() {
   function btnBasket(id) {
     const product = nfts.find((item) => item.id === id);
     if (!product) return;
-    setBaskets((prev) => [...prev, product]);
-  }
 
-  function removeFromBasket(id) {
-    setBaskets((prev) => prev.filter((item) => item.id !== id));
+    const newItem = {
+      ...product,
+      basketId: Date.now() + Math.random(), // уникальный id
+    };
+
+    setBaskets((prev) => [...prev, newItem]);
+  }
+  function removeFromBasket(basketId) {
+    setBaskets((prev) => prev.filter((item) => item.basketId !== basketId));
   }
 
   return (
@@ -44,12 +50,15 @@ function App() {
           closeBasket={closeBasket}
         />
       )}
+      <ScrollToTop />
 
       <Routes>
         <Route path="/" element={<Home nfts={nfts} btnBasket={btnBasket} />} />
-        <Route path="/discover" element={<Discover nfts={nfts} btnBasket={btnBasket}  />} />
+        <Route
+          path="/discover"
+          element={<Discover nfts={nfts} btnBasket={btnBasket} />}
+        />
         <Route path="/wallet" element={<Wallet nfts={nfts} />} />
-
         <Route path="/sellNFT" element={<SellNFT setNfts={setNfts} />} />
       </Routes>
 
@@ -59,6 +68,3 @@ function App() {
 }
 
 export default App;
-
-// w 1000
-//

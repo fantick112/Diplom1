@@ -5,6 +5,8 @@ import HomeMCar from "./HomeMCar";
 import Bargain from "./Bargain";
 import Footer from "./Footer";
 import MaimCollector from "./MaimCollector";
+import SellNFT from "./SellNFT";
+import { useNavigate } from "react-router-dom";
 
 import rectangle1 from "./img/imgHome1/rectangle3.png";
 import rectangle2 from "./img/imgHome1/Rectangle3_1.png";
@@ -13,9 +15,18 @@ import arrow from "./img/imgHome1/Arrow01.png";
 import l from "./img/imgHome1/l.png";
 import r from "./img/imgHome1/r.png";
 function Home({ nfts, btnBasket }) {
+  const navigator = useNavigate();
+  const toCreateNav = () => {
+    navigator("/sellNFT");
+  };
+
+  const toDiscover = () => {
+    navigator("/Discover");
+  };
+
   return (
     <div className="con">
-      <div className="container" >
+      <div className="container">
         <div className="left">
           <h1>Discover And Create NFTs</h1>
 
@@ -29,8 +40,12 @@ function Home({ nfts, btnBasket }) {
           </p>
 
           <div className="buttonHome">
-            <button className="toKnow">Explore More</button>
-            <button className="button_btn">Create NFT</button>
+            <button className="toKnow" onClick={toDiscover}>
+              Explore More
+            </button>
+            <button className="button_btn" onClick={toCreateNav}>
+              Create NFT
+            </button>
           </div>
           <div className="stats">
             <div className="stat_item">
@@ -66,11 +81,11 @@ function Home({ nfts, btnBasket }) {
           </div>
         </div>
       </div>
-      {/*<HomeMCar></HomeMCar> */}
-       <HomeMCar nfts={nfts} btnBasket={btnBasket} />
-       <Bargain nfts={nfts} btnBasket={btnBasket} />
+     
+      <HomeMCar nfts={nfts} btnBasket={btnBasket} />
+      <Bargain nfts={nfts} btnBasket={btnBasket} />
       <MaimCollector></MaimCollector>
-      {/*<Footer/>*/}
+      
     </div>
   );
 }

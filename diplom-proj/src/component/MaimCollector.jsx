@@ -5,8 +5,19 @@ import Rotation1 from "./img/footer/righ/im2.png";
 import Best from "./img/footer/righ/im1.png";
 import Viewed2 from "./img/footer/righ/im3.png";
 import q from "./img/footer//f.png";
+import { useNavigate } from "react-router-dom";
 
 function MaimCollector() {
+    const navigate = useNavigate();
+ 
+   const toExplore = () => {
+     navigate("/discover");
+   }
+   
+ 
+
+
+
   return (
     <div className="conteinerFooter" >
       <hr />
@@ -35,7 +46,7 @@ function MaimCollector() {
               </li>
             </ul>
             <div className="footerBtnExport">
-              <button className="toKnow">
+              <button className="toKnow" onClick={toExplore}>
                 Explore Mor <img src={r} alt="r" />
               </button>
             </div>
@@ -89,7 +100,7 @@ function MaimCollector() {
            
           />
         </div>
-              <button className="toKnowMobill">
+              <button className="toKnowMobill" onClick={toExplore}>
                 Explore Mor <img src={r} alt="r" />
               </button>
           </div>
