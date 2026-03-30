@@ -26,18 +26,52 @@ function App() {
   }
 
   function btnBasket(id) {
-    const product = nfts.find((item) => item.id === id);
-    if (!product) return;
+    setBaskets((prev) => {
+      const existingItem = prev.find((item) => item.id === id);
 
-    const newItem = {
-      ...product,
-      basketId: Date.now() + Math.random(), // уникальный id
-    };
+      if (existingItem) {
+        return prev.map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
+        );
+      } else {
+        const product = nfts.find((item) => item.id === id);
+        if (!product) return prev;
 
-    setBaskets((prev) => [...prev, newItem]);
+        const newItem = {
+          ...product,
+          basketId: Date.now() + Math.random(),
+          quantity: 1,
+        };
+
+        return [...prev, newItem];
+      }
+    });
   }
+
   function removeFromBasket(basketId) {
     setBaskets((prev) => prev.filter((item) => item.basketId !== basketId));
+  }
+
+  function deleteBasket() {
+    setBaskets([]);
+  }
+
+  function minuss(id) {
+    setBaskets((prev) =>
+      prev.map((item) =>
+        item.basketId === id
+          ? { ...item, quantity: Math.max(1, item.quantity - 1) }
+          : item,
+      ),
+    );
+  }
+
+  function plus(id) {
+    setBaskets((prev) =>
+      prev.map((item) =>
+        item.basketId === id ? { ...item, quantity: item.quantity + 1 } : item,
+      ),
+    );
   }
 
   return (
@@ -45,6 +79,9 @@ function App() {
       <Header openBasket={openBasket} baskets={baskets} />
       {isBasket && (
         <Basket
+          plus={plus}
+          minuss={minuss}
+          deleteBasket={deleteBasket}
           baskets={baskets}
           removeFromBasket={removeFromBasket}
           closeBasket={closeBasket}

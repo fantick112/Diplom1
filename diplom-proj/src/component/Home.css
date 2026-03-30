@@ -161,6 +161,7 @@
 .card_img {
   width: 100%;
   border-radius: 15px;
+  object-fit: cover;
 }
 
 .card p {
@@ -412,7 +413,7 @@ hr {
   }
   .card {
     width: 283px;
-    height: 405px;
+    height: 438px;
   }
   .conteinerFooter {
     height: auto;

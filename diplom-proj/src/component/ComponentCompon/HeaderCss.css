@@ -95,6 +95,23 @@
   border: 1px solid #000000;
 }
 
+.quantity-controls{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.quantity-btn{
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+
+}
+.quantity-btn:hover{
+  background-color: #979797;
+}
+
 @media (max-width: 480px) {
   .container_header {
     display: flex;
